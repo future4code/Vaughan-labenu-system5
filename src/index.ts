@@ -2,6 +2,7 @@ import { app } from "./app"
 import { Docente } from "./Classes/Docente"
 import { Estudante } from "./Classes/Estudante"
 import { Turma } from "./Classes/Turma"
+import { CriarTurma } from "./endPoints/criarTurma"
 
 const estudante: Estudante = new Estudante("Diane", "diane@gmail.com", "15/09/2000", "1")
 console.log(estudante)
@@ -14,4 +15,8 @@ console.log(docente.retornaProfessor())
 const turma: Turma = new Turma("Vaughan", "modulo 5")
 console.log(turma)
 console.log(turma.retornaTurma())
-app.post('/criar/tarefa')
+
+const criarTurma: CriarTurma = new CriarTurma
+let iza = criarTurma.criarTurma
+
+app.post('/criar/tarefa', iza)

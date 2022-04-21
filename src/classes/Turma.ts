@@ -1,3 +1,4 @@
+import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 export class Turma {
     id: string
@@ -10,5 +11,13 @@ export class Turma {
     }
     public retornaTurma(): string{
         return this.nome
+     }
+
+    async criarTurma(req: Request, res: Response) {
+         try {
+             
+         } catch (error) {
+             
+         }
      }
 }
