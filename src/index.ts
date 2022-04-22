@@ -2,9 +2,13 @@ import { app } from "./app"
 import { Docente } from "./Classes/Docente"
 import { Estudante } from "./Classes/Estudante"
 import { Turma } from "./Classes/Turma"
+import { buscarDocentes } from "./endPoints/buscarDocentes"
+import { buscarEstudante } from "./endPoints/buscarEstudantePorNome"
 import { BuscarTurma } from "./endPoints/buscarTurmasAtivas"
+import { criarDocente } from "./endPoints/criarDocente"
 import { CriarEstudante } from "./endPoints/criarEstudante"
 import { CriarTurma } from "./endPoints/criarTurma"
+import { mudarTurmaDocente } from "./endPoints/mudarDocenteDeTurma"
 import { MudarModulo } from "./endPoints/mudarModulo"
 
 const estudante: Estudante = new Estudante("Diane", "diane@gmail.com", "15/09/2000", "1")
@@ -36,3 +40,11 @@ app.put("/turma", mudarModuloTurma)
 const criarEstudante: CriarEstudante = new CriarEstudante
 let criarNovoEstudante = criarEstudante.criarEstudante
 app.post("/estudante", criarNovoEstudante)
+
+app.get("/estudante", buscarEstudante)
+
+app.post("/docente", criarDocente)
+
+app.get("/docente", buscarDocentes)
+
+app.put("/docente", mudarTurmaDocente)
