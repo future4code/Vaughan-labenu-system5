@@ -13,11 +13,4 @@ export class Turma {
         return this.nome
      }
 
-    async criarTurma(req: Request, res: Response) {
-         try {
-             
-         } catch (error) {
-             
-         }
-     }
 }
