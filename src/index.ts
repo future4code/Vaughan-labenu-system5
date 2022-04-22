@@ -9,6 +9,7 @@ import { criarDocente } from "./endPoints/criarDocente"
 import { CriarEstudante } from "./endPoints/criarEstudante"
 import { CriarTurma } from "./endPoints/criarTurma"
 import { mudarTurmaDocente } from "./endPoints/mudarDocenteDeTurma"
+import { mudarTurma } from "./endPoints/mudarEstudanteDeTurma"
 import { MudarModulo } from "./endPoints/mudarModulo"
 
 // const estudante: Estudante = new Estudante("Diane", "diane@gmail.com", "15/09/2000", "1")
@@ -42,6 +43,8 @@ let criarNovoEstudante = criarEstudante.criarEstudante
 app.post("/estudante", criarNovoEstudante)
 
 app.get("/estudante", buscarEstudante)
+
+app.put("/estudante", mudarTurma)
 
 app.post("/docente", criarDocente)
 
