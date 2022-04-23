@@ -22,7 +22,7 @@ https://documenter.getpostman.com/view/19298136/UyrAGchs
 - Exibir todos os docentes que tenham uma mesma especialidade
 - Exibir todas as pessoas de um mesmo signo
 
-### Projeto desenvolvido por:
+### 👩‍💻👨‍💻 Projeto desenvolvido por:
 - Ana Sue Sammi
 - Diane Silva de Araújo
 - Vitor Duarte Passo
