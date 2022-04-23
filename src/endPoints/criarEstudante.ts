@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connections";
 import { v4 as uuidv4 } from "uuid";
+import { Estudante } from "../classes/Estudante";
 
-export class CriarEstudante {
-  async criarEstudante(req: Request, res: Response) {
+export const criarEstudante = async (req: Request, res: Response) => {
     let errorCode = 400;
     try {
       const { nome, email, data_nasc, turma_id } = req.body;
+      let novoEstudante = new Estudante(nome, email, data_nasc, turma_id)
       if (!nome) {
         errorCode = 422;
         throw new Error("Preencha seu nome");
@@ -20,14 +21,10 @@ export class CriarEstudante {
         errorCode = 422;
         throw new Error("Preencha sua turma");
       }
-      await connection("estudante").insert({
-        id: uuidv4(),
-        nome: nome,
-        email: email,
-        data_nasc: data_nasc,
-        turma_id: turma_id
-      });
+      await connection("estudante").insert(novoEstudante);
+
       res.status(201).send({message: "Estudante criado com sucesso"});
+      
     } catch (e:any) {
       switch (e.message) {
         case "Preencha seu nome":
@@ -48,4 +45,4 @@ export class CriarEstudante {
       }
     }
   }
-}
+

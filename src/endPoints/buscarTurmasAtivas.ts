@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connections";
 
-export class BuscarTurma {
-  async buscarTurmasAtivas(req: Request, res: Response): Promise<any> {
+export const buscarTurmasAtivas = async (req: Request, res: Response): Promise<any> => {
     let errorCode = 400;
     try {
       let result = await connection("turma")
@@ -18,4 +17,3 @@ export class BuscarTurma {
       res.status(errorCode).send(e.message);
     }
   }
-}
