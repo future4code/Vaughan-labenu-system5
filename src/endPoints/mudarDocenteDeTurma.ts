@@ -1,24 +1,23 @@
-import { Request, Response } from 'express';
-import { connection } from '../data/connections';
+import { Request, Response } from "express";
+import { connection } from "../data/connections";
 
-export const mudarTurmaDocente = async(req: Request, res: Response) => {
-    const {turma_id, docente_id} = req.body
-    try {
-        console.log(turma_id, docente_id)
-        if(!turma_id || !docente_id) {
-            throw new Error("Preencha todos os campos")
-        }
-        await connection("docente")
-            .update({
-                turma_id: turma_id
-            })
-            .where({
-                id: docente_id
-            })
-            
-        res.status(200).send("O docente mudou de turma")
+export const mudarTurmaDocente = async (req: Request, res: Response) => {
+  const { turma_id, docente_id } = req.body;
+  try {
+    console.log(turma_id, docente_id);
+    if (!turma_id || !docente_id) {
+      throw new Error("Preencha todos os campos");
     }
-    catch(e: any) {
-        res.status(500).send(e.sqlMessage || e.message)
-    }
-}
+    await connection("docente")
+      .update({
+        turma_id: turma_id
+      })
+      .where({
+        id: docente_id
+      });
+
+    res.status(200).send({ message: "O docente mudou de turma" });
+  } catch (e) {
+    res.status(500).send({ message: e.sqlMessage || e.message });
+  }
+};

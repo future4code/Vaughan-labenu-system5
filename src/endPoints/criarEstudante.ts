@@ -7,10 +7,7 @@ export class CriarEstudante {
     let errorCode = 400;
     try {
       const { nome, email, data_nasc, turma_id } = req.body;
-      if (!nome && !email && !data_nasc && !turma_id) {
-        errorCode = 422;
-        throw new Error("Preencha todos os campos");
-      } else if (!nome) {
+      if (!nome) {
         errorCode = 422;
         throw new Error("Preencha seu nome");
       } else if (!email) {
@@ -31,11 +28,8 @@ export class CriarEstudante {
         turma_id: turma_id
       });
       res.status(201).send({message: "Estudante criado com sucesso"});
-    } catch (e) {
+    } catch (e:any) {
       switch (e.message) {
-        case "Preencha todos os campos":
-          res.status(errorCode).send({ message: e.message });
-          break;
         case "Preencha seu nome":
           res.status(errorCode).send({ message: e.message });
           break;
@@ -48,9 +42,8 @@ export class CriarEstudante {
         case "Preencha sua turma":
           res.status(errorCode).send({ message: e.message });
           break;
-
         default:
-          res.status(500).send(e.sqlMessage || e.message);
+          res.status(500).send({message: e.sqlMessage || e.message});
           break;
       }
     }

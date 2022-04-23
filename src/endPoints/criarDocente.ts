@@ -7,11 +7,7 @@ export const criarDocente = async(req: Request, res: Response) => {
     const {nome, email, data_nasc, turma_id} = req.body
     try {
         let novoDocente = new Docente(nome, email, data_nasc, turma_id)
-        if (!nome && !email && !data_nasc && !turma_id) {
-            errorCode = 422;
-            throw new Error("Preencha todos os campos")
-        }
-        else if(!nome){
+        if(!nome){
             errorCode = 422;
             throw new Error("Preencha seu nome")
         }
@@ -34,9 +30,6 @@ export const criarDocente = async(req: Request, res: Response) => {
     }
     catch(e: any) {
         switch (e.message) {
-          case "Preencha todos os campos":
-            res.status(errorCode).send({ message: e.message });
-            break;
           case "Preencha seu nome":
             res.status(errorCode).send({ message: e.message });
             break;
@@ -51,7 +44,7 @@ export const criarDocente = async(req: Request, res: Response) => {
             break;
 
           default:
-            res.status(500).send(e.sqlMessage || e.message);
+            res.status(500).send({message: e.sqlMessage || e.message});
             break;
         }
     }
