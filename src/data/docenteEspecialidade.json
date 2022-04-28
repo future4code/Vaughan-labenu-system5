@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "docente_id": "1",
+        "especialidade_id": "1"
+    },
+    {
+        "id": "2",
+        "docente_id": "2",
+        "especialidade_id": "2"
+    },
+    {
+        "id": "3",
+        "docente_id": "3",
+        "especialidade_id": "3"
+    },
+    {
+        "id": "4",
+        "docente_id": "4",
+        "especialidade_id": "4"
+    },
+    {
+        "id": "5",
+        "docente_id": "5",
+        "especialidade_id": "5"
+    }
+]

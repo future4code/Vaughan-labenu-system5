@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "nome": "Vitor",
+        "email": "vitor@gmail.com",
+        "data_nasc": "2003-06-17",
+        "turma_id": "1"
+    },
+    {
+        "id": "2",
+        "nome": "Ana",
+        "email": "Ana@gmail.com",
+        "data_nasc": "1995-03-20",
+        "turma_id": "2"
+    },
+    {
+        "id": "3",
+        "nome": "Diane",
+        "email": "Diane@gmail.com",
+        "data_nasc": "1994-04-28",
+        "turma_id": "3"
+    },
+    {
+        "id": "4",
+        "nome": "Gabriela",
+        "email": "Gabriela@gmail.com",
+        "data_nasc": "1996-11-04",
+        "turma_id": "4"
+    },
+    {
+        "id": "5",
+        "nome": "Ronald",
+        "email": "Ronald@gmail.com",
+        "data_nasc": "1993-04-10",
+        "turma_id": "4"
+    }
+]
